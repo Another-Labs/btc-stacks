@@ -1,6 +1,6 @@
 import { request, AddressPurpose } from 'sats-connect'
 
-export const ConnectBTCWallet = () => {
+export default function ConnectBTCWallet() {
   const handleConnect = async () => {
     const provider = await request('getAccounts', {
       purposes: [
