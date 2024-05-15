@@ -1,4 +1,5 @@
 import { request, AddressPurpose } from 'sats-connect'
+import Button from '@mui/material/Button'
 
 export default function ConnectBTCWallet() {
   const handleConnect = async () => {
@@ -13,5 +14,14 @@ export default function ConnectBTCWallet() {
     console.log(provider)
   }
 
-  return <button onClick={handleConnect}>Connect BTC Wallet</button>
+  return (
+    <Button
+      variant="contained"
+      size="large"
+      sx={{ textTransform: 'none' }}
+      onClick={handleConnect}
+    >
+      Connect BTC Wallet
+    </Button>
+  )
 }
