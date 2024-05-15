@@ -1,5 +1,7 @@
+import { ConnectBTCWallet } from '../components/ConnectBTCWallet'
+
 function Home() {
-  return <div>Home</div>
+  return <ConnectBTCWallet />
 }
 
 export default Home
