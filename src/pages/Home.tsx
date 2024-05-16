@@ -1,7 +1,7 @@
 import ConnectBTCWallet from '../components/ConnectBTCWallet'
 import ConnectSUIWallet from '../components/ConnectSUIWallet'
 import { Container, Paper, Stack, Typography, styled } from '@mui/material'
-import BTCIcon from '../assets/btc.svg'
+import BTCIcon from '../assets/btc.svg?react'
 
 const ConnectBox = styled(Paper)({
   boxSizing: 'border-box',
@@ -30,12 +30,12 @@ function Home() {
         >
           <ConnectBox>
             <Stack
-              alignItems={'center'}
+              alignItems="center"
               justifyContent="space-between"
-              direction={'row'}
+              direction="row"
             >
-              <Stack spacing={1} direction="row">
-                <img src={BTCIcon} alt="" />
+              <Stack alignItems="center" spacing={1} direction="row">
+                <BTCIcon />
                 <Typography fontWeight={600} fontSize={20}>
                   BTC to supply
                 </Typography>
@@ -45,7 +45,7 @@ function Home() {
           </ConnectBox>
           <ConnectBox>
             <Stack
-              alignItems={'center'}
+              alignItems="center"
               justifyContent="space-between"
               direction={'row'}
             >

@@ -1,3 +1,4 @@
+/// <reference types="vite-plugin-svgr/client" />
 import {
   AppBar,
   Container,
@@ -17,7 +18,7 @@ import {
   Link,
 } from 'react-router-dom'
 import RoundBackground from './components/RoundBackground'
-import Logo from './assets/logo.svg'
+import Logo from './assets/logo.svg?react'
 
 const Home = lazy(() => import('./pages/Home'))
 const FAQ = lazy(() => import('./pages/FAQ'))
@@ -79,7 +80,7 @@ export default function Pages() {
           <Container maxWidth="xl">
             <Toolbar>
               <Stack spacing={10} direction="row" alignItems="center">
-                <img src={Logo} />
+                <Logo />
                 <NavTabs />
               </Stack>
             </Toolbar>
