@@ -4,7 +4,7 @@ import { Stack } from '@mui/material'
 
 function Home() {
   return (
-    <Stack spacing={2}>
+    <Stack spacing={2} direction="row">
       <ConnectBTCWallet />
       <ConnectSUIWallet />
     </Stack>
