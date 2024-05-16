@@ -8,6 +8,9 @@ const theme = createTheme({
       main: '#000',
     },
   },
+  typography: {
+    fontFamily: 'Inter',
+  },
   shape: {
     borderRadius: 8,
   },
