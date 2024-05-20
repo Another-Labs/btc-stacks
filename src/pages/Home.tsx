@@ -1,14 +1,8 @@
 import ConnectBTCWallet from '../components/ConnectBTCWallet'
 import ConnectSUIWallet from '../components/ConnectSUIWallet'
-import { Container, Paper, Stack, Typography, styled } from '@mui/material'
+import { Container, Stack, Typography } from '@mui/material'
 import BTCIcon from '../assets/btc.svg?react'
-
-const ConnectBox = styled(Paper)({
-  boxSizing: 'border-box',
-  width: '560px',
-  padding: '24px',
-  borderRadius: '24px',
-})
+import ConnectBox from '../components/ConnectBox'
 
 function Home() {
   return (
@@ -28,33 +22,16 @@ function Home() {
           justifyContent="center"
           sx={{ mt: 12 }}
         >
-          <ConnectBox>
-            <Stack
-              alignItems="center"
-              justifyContent="space-between"
-              direction="row"
-            >
-              <Stack alignItems="center" spacing={1} direction="row">
-                <BTCIcon />
-                <Typography fontWeight={600} fontSize={20}>
-                  BTC to supply
-                </Typography>
-              </Stack>
-              <ConnectBTCWallet />
-            </Stack>
-          </ConnectBox>
-          <ConnectBox>
-            <Stack
-              alignItems="center"
-              justifyContent="space-between"
-              direction={'row'}
-            >
-              <Typography fontWeight={600} fontSize={20}>
-                Proof of collateral
-              </Typography>
-              <ConnectSUIWallet />
-            </Stack>
-          </ConnectBox>
+          <ConnectBox
+            icon={<BTCIcon />}
+            label="BTC to supply"
+            button={<ConnectBTCWallet />}
+          />
+          <ConnectBox
+            // icon={<BTCIcon />}
+            label="SUI Assets"
+            button={<ConnectSUIWallet />}
+          />
         </Stack>
       </Container>
     </>
