@@ -2,6 +2,7 @@ import ConnectBTCWallet from '../components/ConnectBTCWallet'
 import ConnectSUIWallet from '../components/ConnectSUIWallet'
 import { Container, Stack, Typography } from '@mui/material'
 import BTCIcon from '../assets/btc.svg?react'
+import SUIIcon from '../assets/sui.svg?react'
 import ConnectBox from '../components/ConnectBox'
 
 function Home() {
@@ -28,7 +29,7 @@ function Home() {
             button={<ConnectBTCWallet />}
           />
           <ConnectBox
-            // icon={<BTCIcon />}
+            icon={<SUIIcon width={24} />}
             label="SUI Assets"
             button={<ConnectSUIWallet />}
           />
