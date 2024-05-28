@@ -41,7 +41,7 @@ export default function ConnectBTCWallet() {
 
   return (
     <Button
-      variant="contained"
+      variant="outlined"
       size="large"
       sx={{ textTransform: 'none' }}
       onClick={handleConnect}

@@ -4,9 +4,11 @@ import { ReactElement } from 'react'
 
 const ContainerBox = styled(Paper)({
   boxSizing: 'border-box',
-  width: '560px',
+  width: '512px',
   padding: '24px',
-  borderRadius: '24px',
+  borderRadius: '16px',
+  background: '#181818',
+  backdropFilter: 'blur(5px)',
 })
 
 interface ConnectBoxProps {

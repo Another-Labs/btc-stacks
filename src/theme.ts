@@ -3,9 +3,9 @@ import { createTheme } from '@mui/material'
 // 创建自定义主题
 const theme = createTheme({
   palette: {
-    mode: 'light',
+    mode: 'dark',
     primary: {
-      main: '#000',
+      main: '#2ED3B7',
     },
   },
   typography: {
