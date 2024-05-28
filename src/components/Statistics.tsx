@@ -1,7 +1,7 @@
 import { Typography, Stack, styled } from '@mui/material'
-import { ReactElement, useEffect, useState } from 'react'
+import { ReactElement } from 'react'
 import SuiIcon from '../assets/sui.svg?react'
-import AnimatedNumbers from 'react-animated-numbers'
+import CountUp from 'react-countup'
 
 const StyledText = styled(Typography)({
   fontFamily: 'Orbitron',
@@ -23,17 +23,6 @@ function StatisticsItem({
   prefix?: string
   unit?: string
 }) {
-  const [animated, setAnimated] = useState(false)
-
-  useEffect(() => {
-    setTimeout(
-      () => {
-        setAnimated(true)
-      },
-      800 + (String(count).length - 1) * 200,
-    )
-  }, [count])
-
   return (
     <Stack
       alignItems="flex-start"
@@ -55,25 +44,9 @@ function StatisticsItem({
         {icon}
         <Stack direction="row" spacing={0}>
           <StyledText>{prefix}</StyledText>
-          {animated ? (
-            <StyledText>{count}</StyledText>
-          ) : (
-            <AnimatedNumbers
-              includeComma={false}
-              transitions={(index) => ({
-                type: 'spring',
-                duration: index + 0.2,
-              })}
-              animateToNumber={count}
-              fontStyle={{
-                fontFamily: 'Orbitron',
-                fontSize: '32px',
-                fontWeight: 700,
-                color: '#5fe9d0',
-              }}
-            />
-          )}
-
+          <StyledText>
+            <CountUp end={count} duration={1} />
+          </StyledText>
           <StyledText>{unit}</StyledText>
         </Stack>
       </Stack>
