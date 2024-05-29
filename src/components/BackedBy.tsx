@@ -6,7 +6,12 @@ import img4 from '../assets/backed/backed-4.png'
 
 export default function BackedBy() {
   return (
-    <Stack direction="row" alignItems="center" justifyContent="space-between">
+    <Stack
+      sx={{ position: 'fixed', width: '1216px', bottom: '72px' }}
+      direction="row"
+      alignItems="center"
+      justifyContent="space-between"
+    >
       <img src={img1} height={40} alt="" />
       <img src={img2} height={40} alt="" />
       <img src={img3} height={40} alt="" />

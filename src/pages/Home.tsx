@@ -6,44 +6,35 @@ import HomeBackground from '../components/HomeBackground'
 
 function Home() {
   return (
-    <Box>
+    <Box sx={{ minHeight: '800px' }}>
       <HomeBackground />
-      <Stack spacing={4} sx={{ mt: 12.5 }}>
-        <Typography
-          fontSize={40}
-          fontWeight={700}
-          color="#fff"
-          fontFamily="Orbitron"
-        >
-          Unlock your native BTC liquidity without Bridges.
-        </Typography>
-        <Typography fontSize={24} color="#fff" fontFamily="Orbitron">
-          First BTC Zero Trust Protocol. Trust nothing, Verify everything.
-        </Typography>
-      </Stack>
-      <Container maxWidth="lg">
-        <Box sx={{ m: 8 }}>
+      <Box
+        sx={{
+          height: 'calc(100vh - 208px)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Stack spacing={8} alignItems="center" sx={{ margin: 'auto' }}>
+          <Stack spacing={4} sx={{ mt: 12.5 }}>
+            <Typography
+              fontSize={40}
+              fontWeight={700}
+              color="#fff"
+              fontFamily="Orbitron"
+            >
+              Unlock your native BTC liquidity without Bridges.
+            </Typography>
+            <Typography fontSize={24} color="#fff" fontFamily="Orbitron">
+              First BTC Zero Trust Protocol. Trust nothing, Verify everything.
+            </Typography>
+          </Stack>
           <GradientButton>Comming soon</GradientButton>
-        </Box>
-        <StatisticsList />
-        {/* <Stack
-          spacing={2}
-          direction="row"
-          justifyContent="center"
-          sx={{ mt: 12 }}
-        >
-          <ConnectBox
-            icon={<BTCIcon width={32} height={32} />}
-            label="BTC to supply"
-            button={<ConnectBTCWallet />}
-          />
-          <ConnectBox
-            icon={<SUIIcon width={32} />}
-            label="SUI Assets"
-            button={<ConnectSUIWallet />}
-          />
-        </Stack> */}
-
+          <StatisticsList />
+        </Stack>
+      </Box>
+      <Container maxWidth="lg">
         <BackedBy />
       </Container>
     </Box>

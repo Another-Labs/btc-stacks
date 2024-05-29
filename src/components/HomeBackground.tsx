@@ -1,6 +1,5 @@
 import { Box } from '@mui/material'
-import GradientBackground from '../assets/gradient-background.png'
-import Dots from '../assets/dots.svg'
+import GradientBackground from '../assets/background.png'
 
 export default function HomeBackground() {
   return (
@@ -13,10 +12,8 @@ export default function HomeBackground() {
         width: '100vw',
         height: '100vh',
         background: `
-        url(${GradientBackground}) top center no-repeat,
-        url(${Dots}) top left repeat
+        url(${GradientBackground}) center no-repeat
         `,
-        filter: 'blur(90px)',
       }}
     ></Box>
   )

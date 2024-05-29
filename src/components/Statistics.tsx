@@ -57,7 +57,7 @@ function StatisticsItem({
 export default function StatisticsList() {
   return (
     <Stack alignItems="center" justifyContent="center">
-      <Stack direction="row" spacing={1.5} sx={{ marginBottom: '172px' }}>
+      <Stack direction="row" spacing={1.5}>
         <StatisticsItem
           title="btc yield"
           icon={<SuiIcon width={32} height={32} />}
