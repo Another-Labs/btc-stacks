@@ -30,7 +30,12 @@ export default function DepositDialog({
 
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm">
-      <DialogTitle>Deposit</DialogTitle>
+      <DialogTitle sx={{ p: 3 }}>
+        Deposit
+        <Typography fontSize={14} color="#a0a0a8" mt={1}>
+          Please input the BTC amount you want to supply to the existing vault.
+        </Typography>
+      </DialogTitle>
       <IconButton
         aria-label="close"
         onClick={onClose}
@@ -44,11 +49,7 @@ export default function DepositDialog({
         <CloseIcon />
       </IconButton>
       <DialogContent sx={{ pt: 0 }}>
-        <Typography fontSize={14} color="#a0a0a8" mb={3}>
-          Please input the BTC amount you want to supply to the existing vault.
-        </Typography>
-
-        <Table sx={{ mt: '20px' }}>
+        <Table>
           <TableHead>
             <TableRow>
               <TableHeadCell>NFT</TableHeadCell>
