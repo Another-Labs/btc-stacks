@@ -6,58 +6,73 @@ import {
   TableHead,
   TableRow,
   Typography,
-  styled,
 } from '@mui/material'
 import AssetSymbol from './AssetSymbol'
-
-const TableHeadCell = styled(TableCell)({
-  color: '#a0a0a8',
-})
+import DepositDialog from './DepositDialog'
+import { useState } from 'react'
+import useBtcWallet from '../hooks/useBtcWallet'
+import { TableBodyCell, TableHeadCell } from './StyledTable'
 
 export default function AssetTable() {
+  const [open, setOpen] = useState(false)
+  const btcWallet = useBtcWallet()
+  const handleDeposit = () => {
+    setOpen(true)
+  }
+
   return (
-    <Table sx={{ mt: '20px' }}>
-      <TableHead>
-        <TableRow>
-          <TableHeadCell>NFT</TableHeadCell>
-          <TableHeadCell>Asset</TableHeadCell>
-          <TableHeadCell>Amount</TableHeadCell>
-          <TableHeadCell>APY</TableHeadCell>
-          <TableHeadCell>Reward</TableHeadCell>
-          <TableCell></TableCell>
-          <TableCell></TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        <TableRow>
-          <TableCell>0x124t888</TableCell>
-          <TableCell>
-            <AssetSymbol type="btc" labelFontSize={16} />
-          </TableCell>
-          <TableCell>
-            1<br />
-            $70.1K
-          </TableCell>
-          <TableCell>5%</TableCell>
-          <TableCell>
-            <Typography color="#70707B">
-              10 SUI
-              <br />
-              $11
-            </Typography>
-          </TableCell>
-          <TableCell>
-            <Button size="small" variant="text">
-              Claim
-            </Button>
-          </TableCell>
-          <TableCell>
-            <Button size="small" variant="text" sx={{ color: '#fff' }}>
-              Deposit
-            </Button>
-          </TableCell>
-        </TableRow>
-      </TableBody>
-    </Table>
+    <>
+      <Table sx={{ mt: '20px' }}>
+        <TableHead>
+          <TableRow>
+            <TableHeadCell>NFT</TableHeadCell>
+            <TableHeadCell>Asset</TableHeadCell>
+            <TableHeadCell>Amount</TableHeadCell>
+            <TableHeadCell>APY</TableHeadCell>
+            <TableHeadCell>Reward</TableHeadCell>
+            <TableCell></TableCell>
+            {btcWallet.connected ? <TableCell></TableCell> : null}
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow>
+            <TableBodyCell>0x124t888</TableBodyCell>
+            <TableBodyCell>
+              <AssetSymbol type="btc" labelFontSize={16} />
+            </TableBodyCell>
+            <TableBodyCell>
+              1<br />
+              $70.1K
+            </TableBodyCell>
+            <TableBodyCell>5%</TableBodyCell>
+            <TableBodyCell>
+              <Typography color="#70707B">
+                10 SUI
+                <br />
+                $11
+              </Typography>
+            </TableBodyCell>
+            <TableBodyCell>
+              <Button size="small" variant="text">
+                Claim
+              </Button>
+            </TableBodyCell>
+            {btcWallet.connected ? (
+              <TableBodyCell>
+                <Button
+                  size="small"
+                  variant="text"
+                  sx={{ color: '#fff' }}
+                  onClick={handleDeposit}
+                >
+                  Deposit
+                </Button>
+              </TableBodyCell>
+            ) : null}
+          </TableRow>
+        </TableBody>
+      </Table>
+      <DepositDialog open={open} onClose={() => setOpen(false)} />
+    </>
   )
 }

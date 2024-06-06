@@ -48,6 +48,16 @@ const theme = createTheme({
         },
       },
     },
+    MuiDialog: {
+      styleOverrides: {
+        container: {
+          background: 'rgba(0,0,0,0.8)',
+        },
+        paper: {
+          background: '#18181b',
+        },
+      },
+    },
   },
 })
 
