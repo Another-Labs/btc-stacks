@@ -8,7 +8,12 @@ import {
   setDefaultProvider,
 } from 'sats-connect'
 import useLocalStorage from './useLocalStorage'
-import { Config, loadSelector, selectWalletProvider } from '@sats-connect/ui'
+import {
+  Config,
+  loadSelector,
+  selectWalletProvider,
+  close,
+} from '@sats-connect/ui'
 
 export default function useBtcWallet() {
   const [paymentAddress, setPaymentAddress] =
@@ -40,6 +45,7 @@ export default function useBtcWallet() {
     }
     const selectedWallet = await selectWalletProvider(config)
     await setDefaultProvider(selectedWallet)
+    close()
   }
 
   const connect = async ({
