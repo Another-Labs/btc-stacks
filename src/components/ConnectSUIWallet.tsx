@@ -4,17 +4,29 @@ import '@suiet/wallet-kit/style.css' // don't forget to import default styleshee
 import { useEffect, useRef, useState } from 'react'
 
 const CustomButton = styled(ConnectButton)({
+  position: 'relative',
   background: '#000',
-  borderRadius: '8px',
-  width: '189px',
+  borderRadius: '12px',
+  width: '185px',
   height: '44px',
   fontSize: '16px',
   fontWeight: 500,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  '&:before': {
+    content: '""',
+    position: 'absolute',
+    zIndex: -1,
+    display: 'inline-flex',
+    width: '189px',
+    height: '48px',
+    borderRadius: '12px',
+    background:
+      'linear-gradient(90deg, rgba(6,174,212,1) 0%, rgba(115,226,163,1) 100%)',
+  },
   '&:hover': {
-    background: '#000',
+    background: 'rgb(32, 147, 128)',
   },
 })
 

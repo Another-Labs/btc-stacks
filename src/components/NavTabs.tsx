@@ -23,10 +23,13 @@ const darkTheme = createTheme({
             '&::after': {
               content: '""',
               width: '16px',
-              height: '2px',
-              background: '#f5b030',
+              height: '3px',
+              background: 'linear-gradient(90deg, #06AED4 0%, #73E2A3 100%)',
               transform: 'translatey(14px)',
             },
+          },
+          '&:hover': {
+            color: '#15B79E',
           },
         },
       },

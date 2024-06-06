@@ -3,8 +3,11 @@ import BackedBy from '../components/BackedBy'
 import StatisticsList from '../components/Statistics'
 import GradientButton from '../components/GradientButton'
 import HomeBackground from '../components/HomeBackground'
+import { useNavigate } from 'react-router-dom'
 
 function Home() {
+  const navigate = useNavigate()
+
   return (
     <Box sx={{ minHeight: '800px' }}>
       <HomeBackground />
@@ -16,7 +19,11 @@ function Home() {
           justifyContent: 'center',
         }}
       >
-        <Stack spacing={8} alignItems="center" sx={{ margin: 'auto' }}>
+        <Stack
+          spacing={8}
+          alignItems="center"
+          sx={{ margin: 'auto', textAlign: 'center' }}
+        >
           <Stack spacing={4} sx={{ mt: 12.5 }}>
             <Typography
               fontSize={40}
@@ -30,7 +37,9 @@ function Home() {
               First BTC Zero Trust Protocol. Trust nothing, Verify everything.
             </Typography>
           </Stack>
-          <GradientButton>Comming soon</GradientButton>
+          <GradientButton onClick={() => navigate('/earning')}>
+            Start Earning
+          </GradientButton>
           <StatisticsList />
         </Stack>
       </Box>

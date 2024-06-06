@@ -1,13 +1,28 @@
 import { request, AddressPurpose, getProviders } from 'sats-connect'
-import { setDefaultProvider, getDefaultProvider } from '@sats-connect/core'
+import {
+  setDefaultProvider,
+  getDefaultProvider,
+  RpcErrorCode,
+  GetAccountResult,
+  Address,
+} from '@sats-connect/core'
 import {
   loadSelector,
   selectWalletProvider,
   type Config,
 } from '@sats-connect/ui'
-import Button from '@mui/material/Button'
+import GradientButton from './GradientButton'
+import useLocalStorage from '../hooks/useLocalStorage'
 
-export default function ConnectBTCWallet() {
+export default function ConnectBTCWallet({
+  onConnected,
+  onCancel,
+}: {
+  onConnected?: (result: GetAccountResult) => void
+  onCancel?: () => void
+}) {
+  const [, setAddressInfo] = useLocalStorage<Address[]>('addresses', [])
+
   async function selectWallet() {
     const defaultWallet = await getDefaultProvider()
 
@@ -28,7 +43,7 @@ export default function ConnectBTCWallet() {
 
   const handleConnect = async () => {
     await selectWallet()
-    const provider = await request('getAccounts', {
+    const response = await request('getAccounts', {
       purposes: [
         AddressPurpose.Stacks,
         AddressPurpose.Ordinals,
@@ -36,17 +51,34 @@ export default function ConnectBTCWallet() {
       ],
     })
 
-    console.log(provider)
+    console.log(response)
+
+    if (response.status === 'success') {
+      // const paymentAddressItem = response.result.find(
+      //   (address) => address.purpose === AddressPurpose.Payment,
+      // )
+      // const ordinalsAddressItem = response.result.find(
+      //   (address) => address.purpose === AddressPurpose.Ordinals,
+      // )
+      // const stacksAddressItem = response.result.find(
+      //   (address) => address.purpose === AddressPurpose.Stacks,
+      // )
+      setAddressInfo(response.result)
+
+      onConnected && onConnected(response.result)
+    } else {
+      if (response.error.code === RpcErrorCode.USER_REJECTION) {
+        // handle user cancellation error
+        onCancel && onCancel()
+      } else {
+        // handle error
+      }
+    }
   }
 
   return (
-    <Button
-      variant="outlined"
-      size="large"
-      sx={{ textTransform: 'none' }}
-      onClick={handleConnect}
-    >
+    <GradientButton sx={{ textTransform: 'none' }} onClick={handleConnect}>
       Connect BTC Wallet
-    </Button>
+    </GradientButton>
   )
 }

@@ -1,12 +1,13 @@
 import { Box, Button, ButtonProps } from '@mui/material'
 
 export default function GradientButton(props: ButtonProps) {
+  const { sx, ...others } = props
   return (
     <Box
       sx={{
         display: 'inline-flex',
         padding: '2px',
-        borderRadius: '8px',
+        borderRadius: '12px',
         background:
           'linear-gradient(90deg, rgba(6,174,212,1) 0%, rgba(115,226,163,1) 100%)',
       }}
@@ -14,12 +15,13 @@ export default function GradientButton(props: ButtonProps) {
       <Button
         variant="contained"
         size="large"
-        {...props}
+        {...others}
         sx={{
           background: '#000',
           color: '#fff',
           height: '48px',
-          width: '185px',
+          minWidth: '185px',
+          ...sx,
         }}
       />
     </Box>

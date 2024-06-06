@@ -1,25 +1,22 @@
-import styled from '@emotion/styled'
-import { Paper, Stack, Typography } from '@mui/material'
+import { Stack, SxProps, Typography } from '@mui/material'
 import { ReactElement } from 'react'
-
-const ContainerBox = styled(Paper)({
-  boxSizing: 'border-box',
-  width: '512px',
-  padding: '24px',
-  borderRadius: '16px',
-  background: '#181818',
-  backdropFilter: 'blur(5px)',
-})
+import MainBox from './MainBox'
 
 interface ConnectBoxProps {
   icon?: ReactElement
   label: string
   button: ReactElement
+  sx?: SxProps
 }
 
-export default function ConnectBox({ icon, label, button }: ConnectBoxProps) {
+export default function ConnectBox({
+  icon,
+  label,
+  button,
+  sx,
+}: ConnectBoxProps) {
   return (
-    <ContainerBox>
+    <MainBox sx={sx}>
       <Stack alignItems="center" justifyContent="space-between" direction="row">
         <Stack alignItems="center" spacing={1} direction="row">
           {icon}
@@ -29,6 +26,6 @@ export default function ConnectBox({ icon, label, button }: ConnectBoxProps) {
         </Stack>
         {button}
       </Stack>
-    </ContainerBox>
+    </MainBox>
   )
 }
