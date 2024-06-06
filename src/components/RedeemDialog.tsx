@@ -53,12 +53,13 @@ export default function RedeemDialog({
           direction="row"
           alignItems="center"
           justifyContent="space-between"
+          padding="16px 0"
         >
           <Typography>0x124t888</Typography>
           <AssetSymbol type="btc" labelFontSize={16} prefix={1} />
         </Stack>
         <Divider sx={{ margin: '16px 0' }} />
-        <Typography fontSize={14} mb="6px">
+        <Typography fontSize={14} mb="6px" pt={2}>
           BTC Recipient Address
         </Typography>
         <TextField variant="outlined" fullWidth size="small" />
