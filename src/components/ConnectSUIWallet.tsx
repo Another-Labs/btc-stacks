@@ -50,12 +50,14 @@ export default function ConnectSUIWallet() {
   }
 
   useEffect(() => {
-    if (buttonContainerRef.current) {
-      const buttonElement = buttonContainerRef.current.querySelector('button')
-      if (buttonElement) {
-        buttonElement.innerHTML = 'Connect SUI Wallet'
+    setTimeout(() => {
+      if (buttonContainerRef.current) {
+        const buttonElement = buttonContainerRef.current.querySelector('button')
+        if (buttonElement) {
+          buttonElement.innerHTML = 'Connect SUI Wallet'
+        }
       }
-    }
+    })
   }, [wallet.account])
 
   if (wallet.account) {

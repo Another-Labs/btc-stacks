@@ -16,7 +16,7 @@ export default function ConnectBox({
   sx,
 }: ConnectBoxProps) {
   return (
-    <MainBox sx={sx}>
+    <MainBox sx={{ height: '96px', ...sx }}>
       <Stack alignItems="center" justifyContent="space-between" direction="row">
         <Stack alignItems="center" spacing={1} direction="row">
           {icon}

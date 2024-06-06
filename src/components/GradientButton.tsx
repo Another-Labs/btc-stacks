@@ -19,7 +19,7 @@ export default function GradientButton(props: ButtonProps) {
         sx={{
           background: '#000',
           color: '#fff',
-          height: '48px',
+          height: '44px',
           minWidth: '185px',
           ...sx,
         }}
