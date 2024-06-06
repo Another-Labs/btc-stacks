@@ -1,4 +1,4 @@
-export default function useEventBus() {
+export default function useEventChannel() {
   const eventChannel = new BroadcastChannel('btc-stacks')
 
   const emit = (event: string, data?: unknown) => {

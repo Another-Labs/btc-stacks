@@ -14,6 +14,7 @@ import { Address } from 'sats-connect'
 import GrayButton from './GrayButton'
 import { useWallet } from '@suiet/wallet-kit'
 import useMessages from '../hooks/useMessages'
+import useEventChannel from '../hooks/useEventChannel'
 
 const Dot = () => {
   return (
@@ -36,7 +37,6 @@ export default function ConnectedWallet({
   type: 'btc' | 'sui'
   address: string
 }) {
-  console.log(type)
   const addr = address.slice(0, 6) + '...' + address.slice(-4)
 
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
@@ -54,11 +54,13 @@ export default function ConnectedWallet({
 
   const [, setAddressInfo] = useLocalStorage<Address[]>('addresses', [])
   const suiWallet = useWallet()
+  const { emit } = useEventChannel()
 
   const handleDisconnect = () => {
     handleClose()
     if (type === 'btc') {
       setAddressInfo([])
+      emit('btc:disconnect')
     } else {
       suiWallet.disconnect()
     }
