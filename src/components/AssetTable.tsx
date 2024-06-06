@@ -12,12 +12,24 @@ import DepositDialog from './DepositDialog'
 import { useState } from 'react'
 import useBtcWallet from '../hooks/useBtcWallet'
 import { TableBodyCell, TableHeadCell } from './StyledTable'
+import RedeemDialog from './RedeemDialog'
 
 export default function AssetTable() {
   const [open, setOpen] = useState(false)
+  const [openRedeem, setOpenRedeem] = useState(false)
   const btcWallet = useBtcWallet()
-  const handleDeposit = () => {
+
+  const handleClaim = (event: React.MouseEvent) => {
+    event.stopPropagation()
+  }
+
+  const handleDeposit = (event: React.MouseEvent) => {
+    event.stopPropagation()
     setOpen(true)
+  }
+
+  const handleRedeem = () => {
+    setOpenRedeem(true)
   }
 
   return (
@@ -35,7 +47,7 @@ export default function AssetTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
+          <TableRow onClick={handleRedeem}>
             <TableBodyCell>0x124t888</TableBodyCell>
             <TableBodyCell>
               <AssetSymbol type="btc" labelFontSize={16} />
@@ -53,7 +65,7 @@ export default function AssetTable() {
               </Typography>
             </TableBodyCell>
             <TableBodyCell>
-              <Button size="small" variant="text">
+              <Button size="small" variant="text" onClick={handleClaim}>
                 Claim
               </Button>
             </TableBodyCell>
@@ -73,6 +85,7 @@ export default function AssetTable() {
         </TableBody>
       </Table>
       <DepositDialog open={open} onClose={() => setOpen(false)} />
+      <RedeemDialog open={openRedeem} onClose={() => setOpenRedeem(false)} />
     </>
   )
 }

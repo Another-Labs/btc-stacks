@@ -6,11 +6,13 @@ export default function AssetSymbol({
   type,
   iconSize,
   labelFontSize,
+  prefix,
   suffix,
 }: {
   type: 'btc' | 'sui'
   iconSize?: number
   labelFontSize?: number
+  prefix?: string | number
   suffix?: string
 }) {
   const IconComponent = type === 'btc' ? BTCIcon : SUIIcon
@@ -20,7 +22,7 @@ export default function AssetSymbol({
     <Stack direction="row" spacing={1} alignItems="center">
       <IconComponent width={iconSize ?? 32} height={iconSize ?? 32} />
       <Typography fontSize={labelFontSize ?? 24} fontWeight={600}>
-        {label} {suffix}
+        {prefix} {label} {suffix}
       </Typography>
     </Stack>
   )
