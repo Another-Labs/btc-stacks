@@ -5,37 +5,23 @@ import BTCIcon from '../assets/btc.svg?react'
 import SUIIcon from '../assets/sui.svg?react'
 import ConnectBTCWallet from '../components/ConnectBTCWallet'
 import ConnectSUIWallet from '../components/ConnectSUIWallet'
-import { Address, AddressPurpose } from 'sats-connect'
-import { useEffect, useState } from 'react'
 import SupplyBox from '../components/SupplyBox'
 import AssetBox from '../components/AssetBox'
-import useLocalStorage from '../hooks/useLocalStorage'
 import { useWallet } from '@suiet/wallet-kit'
+import useBtcWallet from '../hooks/useBtcWallet'
 
 function Earning() {
-  const [btcStacksAddress, setBtcStacksAddress] = useState<string>()
-  const [addressInfo] = useLocalStorage<Address[]>('addresses', [])
+  // BTC
+  const btcWallet = useBtcWallet()
   // SUI
   const suiWallet = useWallet()
-
-  useEffect(() => {
-    if (addressInfo.length) {
-      const stacksAddressItem = addressInfo.find(
-        (address) => address.purpose === AddressPurpose.Stacks,
-      )
-
-      setBtcStacksAddress(stacksAddressItem?.address)
-    } else {
-      setBtcStacksAddress('')
-    }
-  }, [addressInfo])
 
   return (
     <Container>
       <NetSummary />
       <Stack direction="row" spacing={2} alignItems="flex-start">
-        {btcStacksAddress ? (
-          <SupplyBox address={btcStacksAddress} />
+        {btcWallet.stacksAddress?.address ? (
+          <SupplyBox address={btcWallet.stacksAddress?.address} />
         ) : (
           <ConnectBox
             icon={<BTCIcon width={32} height={32} />}

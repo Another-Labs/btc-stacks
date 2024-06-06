@@ -9,12 +9,10 @@ import {
 } from '@mui/material'
 import { useState } from 'react'
 import CopyIcon from '../assets/copy.svg?react'
-import useLocalStorage from '../hooks/useLocalStorage'
-import { Address } from 'sats-connect'
 import GrayButton from './GrayButton'
 import { useWallet } from '@suiet/wallet-kit'
 import useMessages from '../hooks/useMessages'
-import useEventChannel from '../hooks/useEventChannel'
+import useBtcWallet from '../hooks/useBtcWallet'
 
 const Dot = () => {
   return (
@@ -52,15 +50,13 @@ export default function ConnectedWallet({
   const open = Boolean(anchorEl)
   const id = open ? 'simple-popover' : undefined
 
-  const [, setAddressInfo] = useLocalStorage<Address[]>('addresses', [])
+  const btcWallet = useBtcWallet()
   const suiWallet = useWallet()
-  const { emit } = useEventChannel()
 
   const handleDisconnect = () => {
     handleClose()
     if (type === 'btc') {
-      setAddressInfo([])
-      emit('btc:disconnect')
+      btcWallet.disconnect()
     } else {
       suiWallet.disconnect()
     }
