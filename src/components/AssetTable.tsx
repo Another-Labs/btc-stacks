@@ -11,7 +11,7 @@ import AssetSymbol from './AssetSymbol'
 import DepositDialog from './DepositDialog'
 import { useState } from 'react'
 import useBtcWallet from '../hooks/useBtcWallet'
-import { TableBodyCell, TableHeadCell } from './StyledTable'
+import { TableBodyCell, TableBodyRow, TableHeadCell } from './StyledTable'
 import RedeemDialog from './RedeemDialog'
 
 export default function AssetTable() {
@@ -47,7 +47,7 @@ export default function AssetTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow onClick={handleRedeem}>
+          <TableBodyRow onClick={handleRedeem}>
             <TableBodyCell>0x124t888</TableBodyCell>
             <TableBodyCell>
               <AssetSymbol type="btc" labelFontSize={16} />
@@ -81,7 +81,7 @@ export default function AssetTable() {
                 </Button>
               </TableBodyCell>
             ) : null}
-          </TableRow>
+          </TableBodyRow>
         </TableBody>
       </Table>
       <DepositDialog open={open} onClose={() => setOpen(false)} />
