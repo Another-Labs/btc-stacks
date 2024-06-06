@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import useEventChannel from './useEventChannel'
 
 const tryParse = <T>(val: string | null | undefined, defaultValue?: T) => {
   if (!val) return defaultValue
@@ -20,19 +21,26 @@ function useLocalStorage<T>(
 
 function useLocalStorage<T>(key: string, defaultValue?: T) {
   const lookupKey = `useLocalStorage:${key}`
+  const { on, emit } = useEventChannel()
 
   const [value, setValue] = useState(
     tryParse<T>(localStorage.getItem(lookupKey), defaultValue),
   )
 
+  useEffect(() => {
+    on(lookupKey, (newValue) => {
+      if (newValue === undefined) {
+        localStorage.removeItem(lookupKey)
+        setValue(undefined)
+      } else {
+        localStorage.setItem(lookupKey, JSON.stringify(newValue))
+        setValue(newValue as T)
+      }
+    })
+  })
+
   const set = (newValue: T | undefined) => {
-    if (newValue === undefined) {
-      localStorage.removeItem(lookupKey)
-      setValue(undefined)
-    } else {
-      localStorage.setItem(lookupKey, JSON.stringify(newValue))
-      setValue(newValue)
-    }
+    emit(lookupKey, newValue)
   }
 
   return [value, set] as const

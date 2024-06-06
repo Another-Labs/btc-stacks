@@ -11,27 +11,12 @@ import SupplyBox from '../components/SupplyBox'
 import AssetBox from '../components/AssetBox'
 import useLocalStorage from '../hooks/useLocalStorage'
 import { useWallet } from '@suiet/wallet-kit'
-import useEventChannel from '../hooks/useEventChannel'
 
 function Earning() {
   const [btcStacksAddress, setBtcStacksAddress] = useState<string>()
-  const [addressInfo, setAddressInfo] = useLocalStorage<Address[]>(
-    'addresses',
-    [],
-  )
+  const [addressInfo] = useLocalStorage<Address[]>('addresses', [])
   // SUI
   const suiWallet = useWallet()
-  const { on } = useEventChannel()
-
-  const handleBtcWalletConnected = (data: Address[]) => {
-    setAddressInfo(data)
-  }
-
-  useEffect(() => {
-    on('btc:disconnect', () => {
-      setBtcStacksAddress('')
-    })
-  })
 
   useEffect(() => {
     if (addressInfo.length) {
@@ -40,6 +25,8 @@ function Earning() {
       )
 
       setBtcStacksAddress(stacksAddressItem?.address)
+    } else {
+      setBtcStacksAddress('')
     }
   }, [addressInfo])
 
@@ -53,7 +40,7 @@ function Earning() {
           <ConnectBox
             icon={<BTCIcon width={32} height={32} />}
             label="BTC Assets"
-            button={<ConnectBTCWallet onConnected={handleBtcWalletConnected} />}
+            button={<ConnectBTCWallet />}
           />
         )}
 
