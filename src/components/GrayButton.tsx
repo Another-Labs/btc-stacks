@@ -6,6 +6,10 @@ const GrayButton = styled(MuiButton)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.dark,
   color: theme.palette.secondary.contrastText,
   textTransform: 'none',
+  '&:hover': {
+    borderColor: '#51525C',
+    background: '#3F3F46',
+  },
 }))
 
 export default GrayButton
