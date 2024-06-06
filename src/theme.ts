@@ -60,6 +60,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        sizeSmall: {
+          borderRadius: '8px',
+        },
+      },
+    },
   },
 })
 
