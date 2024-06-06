@@ -42,6 +42,7 @@ const theme = createTheme({
         sizeMedium: {
           height: '40px',
           borderRadius: '12px',
+          textTransform: 'none',
         },
         sizeSmall: {
           textTransform: 'none',
@@ -52,6 +53,7 @@ const theme = createTheme({
       styleOverrides: {
         container: {
           background: 'rgba(0,0,0,0.8)',
+          backdropFilter: 'blur(5px)',
         },
         paper: {
           background: '#18181b',

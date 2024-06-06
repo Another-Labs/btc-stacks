@@ -4,10 +4,16 @@ import ConnectedWallet from './ConnectedWallet'
 import { useState } from 'react'
 import { useWallet } from '@suiet/wallet-kit'
 import BTCAmountInput from './BTCAmountInput'
+import NewSupplyDialog from './NewSupplyDialog'
 
 export default function SupplyBox({ address }: { address: string }) {
   const [amount, setAmount] = useState<string>('0')
+  const [open, setOpen] = useState(false)
   const suiWallet = useWallet()
+  const handleSupply = () => {
+    // TODO: check exsiting asset
+    setOpen(true)
+  }
 
   return (
     <MainBox>
@@ -26,10 +32,13 @@ export default function SupplyBox({ address }: { address: string }) {
           variant="contained"
           size="large"
           disabled={!suiWallet.account}
+          onClick={handleSupply}
         >
           Supply
         </Button>
       </Stack>
+
+      <NewSupplyDialog open={open} onClose={() => setOpen(false)} />
     </MainBox>
   )
 }
