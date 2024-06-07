@@ -3,6 +3,7 @@ import {
   Card,
   CardContent,
   Divider,
+  IconButton,
   Popover,
   Stack,
   Typography,
@@ -109,16 +110,9 @@ export default function ConnectedWallet({
                 <Dot />
                 <Typography>{addr.toLocaleLowerCase()}</Typography>
               </Stack>
-              <Box
-                sx={{
-                  display: 'inline-flex',
-                  cursor: 'pointer',
-                  '&:hover': { color: 'primary.main' },
-                }}
-                onClick={handleCopy}
-              >
+              <IconButton onClick={handleCopy}>
                 <CopyIcon />
-              </Box>
+              </IconButton>
             </Stack>
             <Divider sx={{ m: '32px 0' }} />
             <GrayButton variant="outlined" fullWidth onClick={handleDisconnect}>
