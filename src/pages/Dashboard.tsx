@@ -10,7 +10,7 @@ import AssetBox from '../components/AssetBox'
 import { useWallet } from '@suiet/wallet-kit'
 import useBtcWallet from '../hooks/useBtcWallet'
 
-function Earning() {
+function Doasboard() {
   // BTC
   const btcWallet = useBtcWallet()
   // SUI
@@ -45,4 +45,4 @@ function Earning() {
   )
 }
 
-export default Earning
+export default Doasboard

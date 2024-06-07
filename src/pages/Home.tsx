@@ -37,7 +37,7 @@ function Home() {
               First BTC Zero Trust Protocol. Trust nothing, Verify everything.
             </Typography>
           </Stack>
-          <GradientButton onClick={() => navigate('/earning')}>
+          <GradientButton onClick={() => navigate('/dashboard')}>
             Start Earning
           </GradientButton>
           <StatisticsList />

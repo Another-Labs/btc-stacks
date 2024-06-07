@@ -1,13 +1,13 @@
 /// <reference types="vite-plugin-svgr/client" />
 import { AppBar, Container, Stack, Toolbar } from '@mui/material'
 import { Suspense, lazy } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Logo from './assets/logo.svg?react'
 import Home from './pages/Home'
 import NavTabs from './components/NavTabs'
 import Messages from './components/Messages'
 
-const Earning = lazy(() => import('./pages/Earning'))
+const Dashboard = lazy(() => import('./pages/Dashboard'))
 const FAQ = lazy(() => import('./pages/FAQ'))
 
 export default function Pages() {
@@ -21,7 +21,9 @@ export default function Pages() {
           <Container maxWidth="lg">
             <Toolbar>
               <Stack spacing={10} direction="row" alignItems="center">
-                <Logo />
+                <Link to="/" style={{ display: 'inline-flex' }}>
+                  <Logo />
+                </Link>
                 <NavTabs />
               </Stack>
             </Toolbar>
@@ -30,7 +32,7 @@ export default function Pages() {
         <Messages />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/earning" element={<Earning />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/faq" element={<FAQ />} />
         </Routes>
       </Router>

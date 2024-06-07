@@ -43,7 +43,12 @@ export default function NavTabs() {
   return (
     <ThemeProvider theme={darkTheme}>
       <Tabs value={location.pathname}>
-        <Tab label="Dashboard" value="/" component={Link} to="/" />
+        <Tab
+          label="Dashboard"
+          value="/dashboard"
+          component={Link}
+          to="/dashboard"
+        />
         <Tab label="FAQ" value="/faq" component={Link} to="/faq" />
       </Tabs>
     </ThemeProvider>
