@@ -10,7 +10,7 @@ const CustomButton = styled(ConnectButton)({
   width: '185px',
   height: '44px',
   fontSize: '16px',
-  fontWeight: 500,
+  fontWeight: 600,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -26,7 +26,8 @@ const CustomButton = styled(ConnectButton)({
       'linear-gradient(90deg, rgba(6,174,212,1) 0%, rgba(115,226,163,1) 100%)',
   },
   '&:hover': {
-    background: 'rgb(32, 147, 128)',
+    color: '#000',
+    background: 'transparent',
   },
 })
 

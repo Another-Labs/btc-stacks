@@ -21,6 +21,11 @@ export default function GradientButton(props: ButtonProps) {
           color: '#fff',
           height: '44px',
           minWidth: '185px',
+          '&:hover': {
+            color: '#000',
+            background: 'transparent',
+            boxShadow: 'none',
+          },
           ...sx,
         }}
       />

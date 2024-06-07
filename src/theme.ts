@@ -31,9 +31,14 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         containedPrimary: {
+          background: '#0E9384',
           color: '#fff',
+          fontWeight: 600,
           '&.Mui-disabled': {
             cursor: 'not-allowed',
+            background: '#107569',
+          },
+          '&:hover': {
             background: '#107569',
           },
         },
