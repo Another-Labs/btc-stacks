@@ -17,6 +17,9 @@ const theme = createTheme({
       main: '#15B79E',
       light: '#15B79E',
     },
+    error: {
+      main: '#F04438',
+    },
   },
   typography: {
     fontFamily: 'Inter',
@@ -64,6 +67,21 @@ const theme = createTheme({
       styleOverrides: {
         sizeSmall: {
           borderRadius: '8px',
+        },
+      },
+    },
+    MuiAlert: {
+      styleOverrides: {
+        outlined: {
+          minWidth: '320px',
+          marginTop: '110px',
+          background: '#18181b',
+        },
+        outlinedSuccess: {
+          color: '#15B79E',
+        },
+        outlinedError: {
+          color: '#F04438',
         },
       },
     },
