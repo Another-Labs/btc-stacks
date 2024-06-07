@@ -110,7 +110,11 @@ export default function ConnectedWallet({
                 <Typography>{addr.toLocaleLowerCase()}</Typography>
               </Stack>
               <Box
-                sx={{ display: 'inline-flex', cursor: 'pointer' }}
+                sx={{
+                  display: 'inline-flex',
+                  cursor: 'pointer',
+                  '&:hover': { color: 'primary.main' },
+                }}
                 onClick={handleCopy}
               >
                 <CopyIcon />
