@@ -21,8 +21,8 @@ dependencies:
     specifier: ^0.54.1
     version: 0.54.1(svelte@4.2.18)(typescript@5.4.5)
   '@sats-connect/core':
-    specifier: ^0.0.9
-    version: 0.0.9
+    specifier: ^0.0.11
+    version: 0.0.11
   '@sats-connect/ui':
     specifier: ^0.0.6
     version: 0.0.6
@@ -2931,6 +2931,18 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@sats-connect/core@0.0.11:
+    resolution: {integrity: sha512-KeX0vdJ0aIpavpt/X8ZTlcoGzF/5vcuIoaeN/CV8KyjFuok/nFG6FY874uknI+p2SBQUv2okd0dqBj1YcQIfGQ==}
+    dependencies:
+      axios: 1.6.8
+      bitcoin-address-validation: 2.2.3
+      buffer: 6.0.3
+      jsontokens: 4.0.1
+      lodash.omit: 4.5.0
+    transitivePeerDependencies:
+      - debug
+    dev: false
 
   /@sats-connect/core@0.0.9:
     resolution: {integrity: sha512-7/hY7VF9OqNDYcXlADluMKCTDu9f4OENWkWWO8K1LqanuyZhepu3fBRQKSCT6Xr/3KorvSH/e8sSTcJCzuVOAA==}
