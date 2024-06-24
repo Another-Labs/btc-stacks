@@ -27,8 +27,8 @@ dependencies:
     specifier: ^0.0.6
     version: 0.0.6
   '@suiet/wallet-kit':
-    specifier: ^0.2.24
-    version: 0.2.25(@mysten/sui.js@0.54.1)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)(svelte@4.2.18)(typescript@5.4.5)
+    specifier: ^0.3.2
+    version: 0.3.2(@mysten/sui@1.1.0)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)(svelte@4.2.18)(typescript@5.4.5)
   react:
     specifier: ^18.3.1
     version: 18.3.1
@@ -2348,6 +2348,27 @@ packages:
       - typescript
     dev: false
 
+  /@mysten/sui@1.1.0(svelte@4.2.18)(typescript@5.4.5):
+    resolution: {integrity: sha512-1w8fAOzxF/YRaGK83q5ee1wZVE+snfVnMKSNTFRDWdj6oo8uiWNqUyaaEIt0EJvAXzcfsSjrEDxOU85PHdfaCg==}
+    engines: {node: '>=18'}
+    dependencies:
+      '@graphql-typed-document-node/core': 3.2.0(graphql@16.8.2)
+      '@mysten/bcs': 1.0.2
+      '@noble/curves': 1.4.0
+      '@noble/hashes': 1.4.0
+      '@scure/bip32': 1.4.0
+      '@scure/bip39': 1.3.0
+      '@suchipi/femver': 1.0.0
+      bech32: 2.0.0
+      gql.tada: 1.7.6(graphql@16.8.2)(svelte@4.2.18)(typescript@5.4.5)
+      graphql: 16.8.2
+      tweetnacl: 1.0.3
+      valibot: 0.25.0
+    transitivePeerDependencies:
+      - svelte
+      - typescript
+    dev: false
+
   /@mysten/sui@1.1.2(svelte@4.2.18)(typescript@5.4.5):
     resolution: {integrity: sha512-S1MfGvbkUxKGd39bfA6G21UVwJSSgJW8uKHinSByjt86+YKvSZxlF5zr6RVKcP4Rn8gl5ytMbZQfCPn+0nuGTg==}
     engines: {node: '>=18'}
@@ -2369,10 +2390,10 @@ packages:
       - typescript
     dev: false
 
-  /@mysten/wallet-standard@0.11.6(svelte@4.2.18)(typescript@5.4.5):
-    resolution: {integrity: sha512-iG/O+Al2oxYb+Cf1si8BzfvEGZoupHWjCxxeJHuk3BQhmaffkDe3JXy6AgCW2u+ZJm/sfO7Uva0Q4FAVt0WMZQ==}
+  /@mysten/wallet-standard@0.12.6(svelte@4.2.18)(typescript@5.4.5):
+    resolution: {integrity: sha512-G92IWhqF4GbPvQE8/UMfaPTuljG4SP817niyXkDxsiP7lMJ3ck6ilMDElNQkljWQV2KJZLYQD6kWO3RcP47zwQ==}
     dependencies:
-      '@mysten/sui.js': 0.54.1(svelte@4.2.18)(typescript@5.4.5)
+      '@mysten/sui': 1.1.0(svelte@4.2.18)(typescript@5.4.5)
       '@wallet-standard/core': 1.0.3
     transitivePeerDependencies:
       - svelte
@@ -2983,18 +3004,18 @@ packages:
     resolution: {integrity: sha512-bprE8+K5V+DPX7q2e2K57ImqNBdfGHDIWaGI5xHxZoxbKOuQZn4wzPiUxOAHnsUr3w3xHrWXwN7gnG/iIuEMIg==}
     dev: false
 
-  /@suiet/wallet-kit@0.2.25(@mysten/sui.js@0.54.1)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)(svelte@4.2.18)(typescript@5.4.5):
-    resolution: {integrity: sha512-PjoZD5TPoWEL+YYSX5mnU3p4SLoQCf/lDj/SNVQGRF6+i7C4e8N7JUHnIDRnoUXoRLxUrx2ojDWSWML6hrSAjA==}
+  /@suiet/wallet-kit@0.3.2(@mysten/sui@1.1.0)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)(svelte@4.2.18)(typescript@5.4.5):
+    resolution: {integrity: sha512-xFfJbzn/eWAoVHcltGKEZo65UEzH4kSCcBBaORpd1KhhOyPM3UMTBOk+oNn7p3P97PSiTHvXY9HerF9qGyu/yw==}
     peerDependencies:
-      '@mysten/sui.js': 0.54.1
+      '@mysten/sui': 1.1.0
       react: '*'
       react-dom: '*'
     dependencies:
-      '@mysten/sui.js': 0.54.1(svelte@4.2.18)(typescript@5.4.5)
-      '@mysten/wallet-standard': 0.11.6(svelte@4.2.18)(typescript@5.4.5)
+      '@mysten/sui': 1.1.0(svelte@4.2.18)(typescript@5.4.5)
+      '@mysten/wallet-standard': 0.12.6(svelte@4.2.18)(typescript@5.4.5)
       '@mysten/zksend': 0.9.9(svelte@4.2.18)(typescript@5.4.5)
       '@radix-ui/react-dialog': 1.0.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
-      '@suiet/wallet-sdk': 0.2.22(@mysten/sui.js@0.54.1)(svelte@4.2.18)(typescript@5.4.5)
+      '@suiet/wallet-sdk': 0.3.1(@mysten/sui@1.1.0)(svelte@4.2.18)(typescript@5.4.5)
       '@svgr/rollup': 6.5.1
       '@wallet-standard/core': 1.0.3
       buffer: 6.0.3
@@ -3013,13 +3034,14 @@ packages:
       - typescript
     dev: false
 
-  /@suiet/wallet-sdk@0.2.22(@mysten/sui.js@0.54.1)(svelte@4.2.18)(typescript@5.4.5):
-    resolution: {integrity: sha512-SnzIVdZaEdoqfYUzYxwSjj+mFK9AXlEljgyuVyGpzxNHpYPlYntE0Jw9b3b/6Ym5F+9zBdjhxusLdORiuGZCfA==}
+  /@suiet/wallet-sdk@0.3.1(@mysten/sui@1.1.0)(svelte@4.2.18)(typescript@5.4.5):
+    resolution: {integrity: sha512-I53dWZwIWUxDkZ44F8SNCC0yoYCRW4XBesBryirOYHroCvTrVdaGh6mQkNvjcJWNA8WOXbd9WS6vz4kYKFjH3g==}
     peerDependencies:
-      '@mysten/sui.js': 0.54.1
+      '@mysten/sui': 1.1.0
     dependencies:
-      '@mysten/sui.js': 0.54.1(svelte@4.2.18)(typescript@5.4.5)
-      '@mysten/wallet-standard': 0.11.6(svelte@4.2.18)(typescript@5.4.5)
+      '@mysten/sui': 1.1.0(svelte@4.2.18)(typescript@5.4.5)
+      '@mysten/wallet-standard': 0.12.6(svelte@4.2.18)(typescript@5.4.5)
+      '@mysten/zksend': 0.9.9(svelte@4.2.18)(typescript@5.4.5)
       '@noble/hashes': 1.4.0
       buffer: 6.0.3
       superstruct: 1.0.4
